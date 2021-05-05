@@ -1,0 +1,76 @@
+<?php
+/**
+ * Landofcoder
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * https://landofcoder.comlicense
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Landofcoder
+ * @package    Lof_InstagramFeed
+ * @copyright  Copyright (c) 2021 Landofcoder (https://landofcoder.com/)
+ * @license    https://landofcoder.com/LICENSE-1.0.html
+ */
+
+/** @var Lof\InstagramFeed\Block\Widget $block */
+if ($block->isEnable()):
+    $widgetId = uniqid('-', false);
+    $options = $block->getAllOptions();
+    $total = $options['total_number'];
+    $calcWidth = $block->calcWidth();
+    $width = $block->getNumberRow($options['layout']) ? $calcWidth . '%' : $calcWidth . 'px';
+    $sizeIcon = ($calcWidth < 10) ? '10px' : '14px';
+    ?>
+    <div class="lofinstagramfeed-container">
+        <div class="lofinstagramfeed-header">
+            <h3><?= /** @noEscape */ __($block->getData('title')) ?></h3>
+            <div><?= /** @noEscape */ __($block->getData('description')) ?></div>
+        </div>
+        <div id="lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId ?>" class="row shuffle"></div>
+    </div>
+    <style type="text/css">
+        #lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId?> .lofinstagramfeed-photo {
+            width: calc(<?= /** @noEscape */ $width ?> - 4px);
+        }
+        .lofinstagramfeed-container .lofinstagramfeed-photo .lofinstagramfeed-post-caption {
+            font-size: <?= /** @noEscape */ $sizeIcon ?>;
+        }
+        @media (max-width: 767px) {
+            .lofinstagramfeed-container #lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId ?> .lofinstagramfeed-photo {
+                width: 100%;
+            }
+            .lofinstagramfeed-container #lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId ?> .lofinstagramfeed-photo.shuffle-item {
+                width: auto;
+            }
+        }
+        @media (min-width: 767px) and (max-width: 1024px) {
+            .lofinstagramfeed-container #lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId ?> .lofinstagramfeed-photo {
+                width: 30%;
+            }
+            .lofinstagramfeed-container #lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId ?> .lofinstagramfeed-photo.shuffle-item {
+                width: auto;
+            }
+        }
+    </style>
+    <script type="text/x-magento-init">
+    {
+        "#lofinstagramfeed-photos-<?= /** @noEscape */ $widgetId ?>": {
+            "landofcoder/instagram": {
+                "id": "<?= /** @noEscape */ $widgetId ?>",
+                "token": "<?= /** @noEscape */ $block->getAccessToken() ?>",
+                "count": "<?= /** @noEscape */ $total ?>",
+                "layout": "<?= /** @noEscape */ $options['layout'] ?>",
+                "show_caption": "<?= /** @noEscape */ $options['show_caption'] ?>",
+                "show_popup": "<?= /** @noEscape */ $options['show_popup'] ?>"
+            }
+        }
+    }
+    </script>
+<?php endif; ?>

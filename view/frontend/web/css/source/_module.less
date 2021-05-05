@@ -1,0 +1,66 @@
+/**
+ * Landofcoder
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Landofcoder.com license that is
+ * available through the world-wide-web at this URL:
+ * https://landofcoder.comlicense
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade this extension to newer
+ * version in the future.
+ *
+ * @category   Landofcoder
+ * @package    Lof_InstagramFeed
+ * @copyright  Copyright (c) 2021 Landofcoder (https://landofcoder.com/)
+ * @license    https://landofcoder.com/LICENSE-1.0.html
+ */
+
+.lofinstagramfeed-container .lofinstagramfeed-photo {
+  margin: 2px;
+  display: inline-block;
+  position: relative;
+}
+
+@media (max-width: 767px) {
+  .lofinstagramfeed-container .lofinstagramfeed-photo .lofinstagramfeed-post-caption {
+    font-size: 14px !important;
+    opacity: 1 !important;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+  .lofinstagramfeed-container .lofinstagramfeed-photo .lofinstagramfeed-post-caption {
+    opacity: 1 !important;
+  }
+}
+
+.lofinstagramfeed-container .lofinstagramfeed-photo .lofinstagramfeed-post-caption {
+  line-height: 18px;
+  letter-spacing: normal;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: #F0F0F0;
+  max-height: 30%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lofinstagramfeed-photo:hover .lofinstagramfeed-post-caption {
+  opacity: 1 !important;
+  display: inline;
+}
+
+.lofinstagramfeed-container .lofinstagramfeed-photo img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: 100%;
+  object-fit: cover;
+  padding: 0 1px 1px 0;
+}

@@ -1,0 +1,25 @@
+{
+  "name": "landofcoder/module-instagram-feed",
+  "description": "Magento 2 Instagram Feed Extension",
+  "require": {
+  },
+  "type": "magento2-module",
+  "version": "4.0.1",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Landofcoder",
+      "email": "landofcoder@gmail.com",
+      "homepage": "https://landofcoder.com",
+      "role": "Magento 2 Extension Provider"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Lof\\InstagramFeed\\": ""
+    }
+  }
+}
