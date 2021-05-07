@@ -135,7 +135,7 @@ Be well responsive with both desktop and mobile devices.
 
 
 ## 7. Instagram Feed User guide
-From the **Admin Panel**, go to `Store > Settings > Configuration > MAGEPLAZA EXTENSIONS > Instagram Feed`
+From the **Admin Panel**, go to `Store > Settings > Configuration > Landofcoder > Instagram Feed`
 
 
 
